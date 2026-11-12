@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Case File #0527: The Night Shift</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--desk:#d8d2c4;--folder:#c8a468;--folder-dk:#a98547;--paper:#fbf9f3;--ink:#23211c;--muted:#6b665a;--stamp:#a8231b;--ok:#1f6b3a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--desk:#1d2321;--folder:#9a7a46;--folder-dk:#7a5f33;--paper:#e9e4d6;--ink:#1f1d18;--muted:#5d584c;--stamp:#c0392f;--ok:#2e7d4a}}
+:root[data-theme="dark"]{color-scheme:dark;--desk:#1d2321;--folder:#9a7a46;--folder-dk:#7a5f33;--paper:#e9e4d6;--ink:#1f1d18;--muted:#5d584c;--stamp:#c0392f;--ok:#2e7d4a}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--desk);color:var(--ink);font-family:"Courier Prime","Courier New",monospace;line-height:1.6;font-size:16px}
+main{max-width:760px;margin:0 auto;padding:28px 16px 64px}
+h1,h2,h3{font-family:"Special Elite","Courier New",monospace;font-weight:400;margin:0}
+.folder{background:var(--folder);border-radius:4px 14px 6px 6px;padding:44px 18px 20px;margin:0 0 40px;position:relative;box-shadow:0 2px 0 var(--folder-dk),0 10px 18px rgba(0,0,0,.22)}
+.tab{position:absolute;top:-16px;left:18px;background:var(--folder);border-radius:8px 8px 0 0;padding:6px 16px 4px;font-family:"Special Elite","Courier New",monospace;font-size:15px;color:#2a2112;box-shadow:0 -2px 0 var(--folder-dk)}
+.sheet{background:var(--paper);color:var(--ink);padding:20px 18px;border-radius:2px;position:relative;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.stamp{position:absolute;top:14px;right:14px;border:3px solid var(--stamp);color:var(--stamp);font-family:"Special Elite","Courier New",monospace;padding:2px 10px;transform:rotate(-7deg);font-size:18px;opacity:.85}
+.stamp.solved{border-color:var(--ok);color:var(--ok)}
+h1{font-size:clamp(28px,7vw,44px);line-height:1.1;margin:6px 0 10px;max-width:11em}
+h2{font-size:22px;margin-bottom:10px;padding-right:110px}
+.meta{margin:0;color:var(--muted);font-size:14px}
+.meta b{color:var(--ink)}
+.clue{margin:14px 0;padding:12px 14px;background:#ece6d3;border-left:4px solid var(--stamp);font-size:18px;overflow-wrap:anywhere}
+.clue small{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+.field{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.field label{font-weight:700}
+input[type=text]{font:inherit;padding:8px 10px;border:0;border-bottom:2px solid var(--ink);background:transparent;color:var(--ink);min-width:0;flex:1 1 140px;max-width:280px}
+input:focus-visible,button:focus-visible,summary:focus-visible,.map-drop:focus-visible{outline:3px solid var(--stamp);outline-offset:2px}
+button,.btn{font:inherit;background:var(--ink);color:var(--paper);border:0;padding:8px 14px;cursor:pointer;border-radius:2px}
+.map-drop{display:flex;align-items:center;justify-content:center;text-align:center;min-height:240px;border:2px dashed var(--muted);color:var(--muted);cursor:pointer;padding:16px;overflow:hidden}
+.map-drop img{max-width:100%;height:auto;display:block}
+.map-drop input{display:none}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.slots output{display:block;border-bottom:2px solid var(--ink);min-height:2em;text-align:center;font-weight:700;overflow-wrap:anywhere}
+.slots small{display:block;text-align:center;color:var(--muted);font-size:12px}
+#verdict{margin:12px 0 0;font-weight:700;min-height:1.6em}
+.closed{display:none;margin-top:14px;border:4px solid var(--ok);color:var(--ok);padding:10px;text-align:center;font-family:"Special Elite","Courier New",monospace;font-size:26px;transform:rotate(-2deg)}
+.closed.show{display:block}
+@media (max-width:520px){.slots{grid-template-columns:repeat(2,1fr)}h2{padding-right:0;margin-top:30px}}
+.env{display:none;margin-top:18px}.env.show{display:block}
+.env button{display:block;margin:0 auto}
+.letter{display:none;margin-top:14px;padding:22px 20px;background:#fffdf6;color:#2a2112;border:1px solid #d9cfb4;box-shadow:0 2px 8px rgba(0,0,0,.25);font-family:"Caveat","Segoe Script",cursive;font-size:24px;line-height:1.45;white-space:pre-wrap}
+.letter.show{display:block}
+</style>
+</head>
+<body>
+<main>
+
+<section class="folder" aria-labelledby="t">
+  <div class="tab">CASE #0527</div>
+  <div class="sheet">
+    <div class="stamp">OPEN</div>
+    <h1 id="t">The Night Shift</h1>
+    <p class="meta"><b>Assigned to:</b> Lead Detective ( M )</p>
+    <p class="meta"><b>Status:</b> Four fragments logged overnight. Purpose unknown.</p>
+    <p style="margin-top:14px">Someone left a message in pieces. Decode each fragment, then use the time each one was logged to work out how they fit together.</p>
+  </div>
+</section>
+
+<section class="folder" aria-labelledby="m">
+  <div class="tab">SCENE MAP</div>
+  <div class="sheet">
+    <h2 id="m" style="padding-right:0">Scene map</h2>
+    <label class="map-drop" tabindex="0" id="drop">
+      <span id="dropText">Tap here to load your map image</span>
+      <input type="file" accept="image/*" id="mapFile">
+    </label>
+    <p class="meta" style="margin-top:8px">The image stays in your browser and is not uploaded anywhere.</p>
+  </div>
+</section>
+
+<section class="folder" aria-labelledby="e1">
+  <div class="tab">EVIDENCE #1</div>
+  <div class="sheet">
+    <div class="stamp" id="s1">UNSOLVED</div>
+    <h2 id="e1">The tapped signal</h2>
+    <p class="meta"><b>Found:</b> a hotel phone line</p>
+    <p class="meta"><b>Time logged:</b> 23:30</p>
+    <div class="clue">- .... .<small>Format: dots and dashes</small></div>
+    <p class="meta"><b>Tools:</b> CyberChef</p>
+    <p class="meta"><b>Task:</b> Add the “From Morse Code” recipe and read the output.</p>
+    <div class="field"><label for="w1">Recovered word:</label><input type="text" id="w1" autocomplete="off" data-h="b9776d7ddf459c9ad5b0e1d6ac61e27befb5e99fd62446677600d7cacef544d0"><button data-chk="1">Check</button></div>
+  </div>
+</section>
+<section class="folder" aria-labelledby="e2">
+  <div class="tab">EVIDENCE #2</div>
+  <div class="sheet">
+    <div class="stamp" id="s2">UNSOLVED</div>
+    <h2 id="e2">The scrambled note</h2>
+    <p class="meta"><b>Found:</b> under a desk lamp</p>
+    <p class="meta"><b>Time logged:</b> 23:10</p>
+    <div class="clue">ybbx<small>Format: letters, shifted</small></div>
+    <p class="meta"><b>Tools:</b> CyberChef</p>
+    <p class="meta"><b>Task:</b> Add the “ROT13” recipe and read the output.</p>
+    <div class="field"><label for="w2">Recovered word:</label><input type="text" id="w2" autocomplete="off" data-h="3c01eba119e00d79c82b6f65d70bc5f1044d568618bf41377e6d1432023fc2b8"><button data-chk="2">Check</button></div>
+  </div>
+</section>
+<section class="folder" aria-labelledby="e3">
+  <div class="tab">EVIDENCE #3</div>
+  <div class="sheet">
+    <div class="stamp" id="s3">UNSOLVED</div>
+    <h2 id="e3">The locked cipher</h2>
+    <p class="meta"><b>Found:</b> inside a safe</p>
+    <p class="meta"><b>Time logged:</b> 23:50</p>
+    <div class="clue">raarvifk<small>Cipher: Vigenère · Key: CASE</small></div>
+    <p class="meta"><b>Tools:</b> dCode (Vigenère Cipher)</p>
+    <p class="meta"><b>Task:</b> Enter the ciphertext, set the key to CASE and choose Decrypt.</p>
+    <div class="field"><label for="w3">Recovered word:</label><input type="text" id="w3" autocomplete="off" data-h="a54e5638bbc34d80ddd34634760fe0db2bbbb301bc97675112c21df61eefdb63"><button data-chk="3">Check</button></div>
+  </div>
+</section>
+<section class="folder" aria-labelledby="e4">
+  <div class="tab">EVIDENCE #4</div>
+  <div class="sheet">
+    <div class="stamp" id="s4">UNSOLVED</div>
+    <h2 id="e4">The machine code</h2>
+    <p class="meta"><b>Found:</b> on a corrupted drive</p>
+    <p class="meta"><b>Time logged:</b> 23:20</p>
+    <div class="clue">01100010 01100101 01101000 01101001 01101110 01100100<small>Format: 8-bit groups</small></div>
+    <p class="meta"><b>Tools:</b> CyberChef</p>
+    <p class="meta"><b>Task:</b> Add the “From Binary” recipe and read the output.</p>
+    <div class="field"><label for="w4">Recovered word:</label><input type="text" id="w4" autocomplete="off" data-h="b1b886ce5f5750a00ae3dd003702a16e4916e6830987e03094cbbf699cb0fae1"><button data-chk="4">Check</button></div>
+  </div>
+</section>
+<section class="folder" aria-labelledby="f">
+  <div class="tab">FINAL REPORT</div>
+  <div class="sheet">
+    <h2 id="f" style="padding-right:0">Close the case</h2>
+    <p style="margin-top:0">Your four words, in the order of the evidence files:</p>
+    <div class="slots" aria-live="polite">
+      <div><output id="o1">&nbsp;</output><small>#1</small></div>
+      <div><output id="o2">&nbsp;</output><small>#2</small></div>
+      <div><output id="o3">&nbsp;</output><small>#3</small></div>
+      <div><output id="o4">&nbsp;</output><small>#4</small></div>
+    </div>
+    <p>Reorder them by the time they were logged and type the full message.</p>
+    <div class="field"><label for="final">The message:</label><input type="text" id="final" autocomplete="off" style="max-width:100%"><button id="close">Close case</button></div>
+    <p id="verdict" role="status"></p>
+    <div class="closed" id="closed">CASE CLOSED</div>
+    <div class="env" id="env"><button id="openEnv">Open the sealed envelope</button><div class="letter" id="letter"></div></div>
+  </div>
+</section>
+
+</main>
+<script>
+(function(){
+  var norm=function(s){return s.toLowerCase().replace(/[^a-z ]/g,'').replace(/\s+/g,' ').trim()};
+  var sha=function(s){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)).then(function(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')})};
+  var BLOB="5orXrZtGTrp7Ky7kJC4+/nIbTWjvF/wT2aksS98rh8dRAFVkopF0AXkO6GE3xrO71cPepw3nIB8zSsYEXR8IOVHW6O22N1rkGBts5mAsO6oYnopCRmTn5bTv2Vu16zgfuHMjN0yTuW5Oyy9YDCjkCoT4bNlMYxqORpOK25tKojik55FHOf5MKzrSFhkZUlYWwykchrIgYVG17gz9fLr3c2CIFjh6U6jsTtkzJCFlU1jPkasIdsyb9BqSS4cwDlEp+oXRQ32KXMBQb2uCtCX4YEW8n2+Wu2jXXgfgfnjNv0DxNLB/GKq2hRTzyhH4k/dDcH8Y9Aqj4WGVJ4D9puY3nlNYXQi8IS7pl3MmZbIehdkbd5MrD44GNNYXwJr6cOG2Nc1F1G8/lZQb826S3fBCdFsahe9AEI7aGyU2YQZbQrDNamV5hL1NMyUco5kUNSQfBItc4Ia5EgjJMexVh/2QvNxn1IrNFtt/V10NWs+++7qqzEU9R21tibsHRHrOheWZO+kak4gDefMRkuf4p92b45B02HV3p64Jkfgg4cV8hWrW3Ihrx/JZdW/EdYtO2bObXNX+MdpeDMZKJtM/tQfhV2soAc2tgO1SYZ/0MU1rwNAy0PHkmb8R";
+  var phrase='';
+  var FINAL="a297ff75e99aaab488d27352614228d78dbf4c0ea14d4735bcfd07561899b40d";
+  var done={};
+  document.querySelectorAll('[data-chk]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var n=b.getAttribute('data-chk'),inp=document.getElementById('w'+n),st=document.getElementById('s'+n),w=norm(inp.value);
+      sha(w).then(function(h){
+        if(h===inp.getAttribute('data-h')){
+          done[n]=1;st.textContent='SOLVED';st.className='stamp solved';document.getElementById('o'+n).textContent=w;
+        }else{
+          delete done[n];st.textContent='WRONG';st.className='stamp';document.getElementById('o'+n).innerHTML='&nbsp;';
+        }
+      });
+    });
+  });
+  document.getElementById('close').addEventListener('click',function(){
+    var v=document.getElementById('verdict'),c=document.getElementById('closed');
+    if(Object.keys(done).length<4){v.textContent='Some evidence is still unsolved. Check all four files first.';c.className='closed';return}
+    sha(norm(document.getElementById('final').value)).then(function(h){
+      if(h===FINAL){v.textContent='';c.className='closed show';phrase=norm(document.getElementById('final').value);document.getElementById('env').className='env show'}
+      else{v.textContent='Not the message yet. Check the order the fragments were logged.';c.className='closed'}
+    });
+  });
+  document.getElementById('openEnv').addEventListener('click',function(){
+    var raw=Uint8Array.from(atob(BLOB),function(x){return x.charCodeAt(0)});
+    crypto.subtle.importKey('raw',new TextEncoder().encode(phrase),'PBKDF2',false,['deriveKey']).then(function(k){
+      return crypto.subtle.deriveKey({name:'PBKDF2',salt:raw.slice(0,16),iterations:100000,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['decrypt'])
+    }).then(function(k){
+      return crypto.subtle.decrypt({name:'AES-GCM',iv:raw.slice(16,28)},k,raw.slice(28))
+    }).then(function(p){
+      var l=document.getElementById('letter');l.textContent=new TextDecoder().decode(p);l.className='letter show';document.getElementById('openEnv').style.display='none';
+    }).catch(function(){document.getElementById('verdict').textContent='The envelope would not open.'});
+  });
+  var f=document.getElementById('mapFile'),d=document.getElementById('drop');
+  d.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();f.click()}});
+  f.addEventListener('change',function(){
+    var file=f.files&&f.files[0];if(!file)return;
+    var r=new FileReader();
+    r.onload=function(){var t=document.getElementById('dropText');t.textContent='';var i=document.createElement('img');i.src=r.result;i.alt='Scene map';t.appendChild(i)};
+    r.readAsDataURL(file);
+  });
+})();
+</script>
+</body>
+</html>
