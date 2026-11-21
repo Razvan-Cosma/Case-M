@@ -174,6 +174,89 @@
             color: var(--ink)
         }
 
+        /* ── links & investigative tools styling ── */
+        a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1.5px;
+            transition: color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--stamp);
+            outline-offset: 2px;
+            border-radius: 2px
+        }
+
+        .tool-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 700;
+            font-family: inherit;
+            background: rgba(200, 164, 104, 0.18);
+            border: 1px solid rgba(169, 133, 71, 0.4);
+            border-bottom: 2px solid var(--folder-dk);
+            padding: 1px 7px;
+            border-radius: 3px;
+            font-size: 13.5px;
+            line-height: 1.4;
+            vertical-align: middle;
+            transition: all 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05)
+        }
+
+        .tool-link .ext-icon {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 900;
+            color: var(--stamp);
+            transition: transform 0.18s ease, color 0.18s ease
+        }
+
+        .tool-link:hover {
+            background: var(--ink);
+            color: var(--paper);
+            border-color: var(--ink);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22);
+            transform: translateY(-1.5px);
+            text-decoration: none
+        }
+
+        .tool-link:hover .ext-icon {
+            color: #f5d77f;
+            transform: translate(2px, -2px)
+        }
+
+        .tool-link:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2)
+        }
+
+        .toolkit-bar {
+            margin: 16px 0 14px;
+            padding: 10px 14px;
+            background: rgba(200, 164, 104, 0.12);
+            border-left: 3px solid var(--folder-dk);
+            border-radius: 0 4px 4px 0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 10px;
+            font-size: 13.5px
+        }
+
+        .toolkit-label {
+            color: var(--ink);
+            font-size: 12.5px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: 700
+        }
+
         .clue {
             margin: 14px 0;
             padding: 12px 14px;
@@ -1095,12 +1178,12 @@
         .folder {
             background-image:
                 /* subtle crease across the folder */
-                linear-gradient(172deg, transparent 42%, rgba(0,0,0,.06) 42.3%, rgba(0,0,0,.06) 42.6%, transparent 42.9%),
+                linear-gradient(172deg, transparent 42%, rgba(0, 0, 0, .06) 42.3%, rgba(0, 0, 0, .06) 42.6%, transparent 42.9%),
                 /* worn corners gradient */
-                radial-gradient(ellipse at 0% 0%, rgba(0,0,0,.12), transparent 28%),
-                radial-gradient(ellipse at 100% 100%, rgba(0,0,0,.10), transparent 22%),
+                radial-gradient(ellipse at 0% 0%, rgba(0, 0, 0, .12), transparent 28%),
+                radial-gradient(ellipse at 100% 100%, rgba(0, 0, 0, .10), transparent 22%),
                 /* subtle color variation */
-                linear-gradient(180deg, rgba(255,255,240,.08) 0%, transparent 30%, rgba(80,50,20,.06) 100%);
+                linear-gradient(180deg, rgba(255, 255, 240, .08) 0%, transparent 30%, rgba(80, 50, 20, .06) 100%);
             background-color: var(--folder);
         }
 
@@ -1109,33 +1192,33 @@
             background-image:
                 var(--noise),
                 /* foxing / age spots */
-                radial-gradient(circle 6px at 82% 18%, rgba(160,120,60,.09), transparent),
-                radial-gradient(circle 4px at 15% 72%, rgba(140,100,50,.07), transparent),
-                radial-gradient(circle 8px at 68% 88%, rgba(150,110,55,.06), transparent),
-                radial-gradient(circle 3px at 35% 45%, rgba(130,90,40,.05), transparent),
+                radial-gradient(circle 6px at 82% 18%, rgba(160, 120, 60, .09), transparent),
+                radial-gradient(circle 4px at 15% 72%, rgba(140, 100, 50, .07), transparent),
+                radial-gradient(circle 8px at 68% 88%, rgba(150, 110, 55, .06), transparent),
+                radial-gradient(circle 3px at 35% 45%, rgba(130, 90, 40, .05), transparent),
                 /* coffee ring stain (very subtle) */
-                radial-gradient(circle 32px at 78% 82%, transparent 18px, rgba(120,80,30,.06) 20px, rgba(120,80,30,.04) 26px, transparent 28px),
+                radial-gradient(circle 32px at 78% 82%, transparent 18px, rgba(120, 80, 30, .06) 20px, rgba(120, 80, 30, .04) 26px, transparent 28px),
                 /* general aging gradient */
-                linear-gradient(180deg, rgba(0,0,0,.03), transparent 28%, rgba(120,90,30,.06));
+                linear-gradient(180deg, rgba(0, 0, 0, .03), transparent 28%, rgba(120, 90, 30, .06));
             /* slightly irregular edge shadow */
             box-shadow:
-                0 1px 3px rgba(0,0,0,.25),
-                inset 0 0 30px rgba(120,90,30,.04),
-                inset -1px -1px 0 rgba(180,160,120,.12);
+                0 1px 3px rgba(0, 0, 0, .25),
+                inset 0 0 30px rgba(120, 90, 30, .04),
+                inset -1px -1px 0 rgba(180, 160, 120, .12);
         }
 
         /* tape strips on sheets - slightly translucent, uneven */
         .map-drop::before,
         .map-drop::after {
-            background: linear-gradient(180deg, rgba(235,225,170,.82), rgba(220,210,155,.65));
-            border: 1px solid rgba(200,180,120,.25);
+            background: linear-gradient(180deg, rgba(235, 225, 170, .82), rgba(220, 210, 155, .65));
+            border: 1px solid rgba(200, 180, 120, .25);
             backdrop-filter: blur(1px);
         }
 
         /* worn/dog-eared corner on evidence sheets */
         .sheet.ev::before {
             /* override paperclip with a more worn look */
-            filter: drop-shadow(1px 2px 2px rgba(0,0,0,.4)) saturate(.85);
+            filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, .4)) saturate(.85);
         }
 
         /* subtle fold marks on sheets */
@@ -1147,15 +1230,15 @@
             width: 20px;
             height: 50px;
             background: var(--clip) center/contain no-repeat;
-            filter: drop-shadow(1px 2px 2px rgba(0,0,0,.45)) saturate(.7);
+            filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, .45)) saturate(.7);
             z-index: 2
         }
 
         /* aged tab label */
         .tab {
-            background-image: linear-gradient(180deg, rgba(255,255,255,.06), transparent 40%, rgba(0,0,0,.04));
-            border-bottom: 1px solid rgba(0,0,0,.08);
-            text-shadow: 0 1px 0 rgba(255,255,255,.15);
+            background-image: linear-gradient(180deg, rgba(255, 255, 255, .06), transparent 40%, rgba(0, 0, 0, .04));
+            border-bottom: 1px solid rgba(0, 0, 0, .08);
+            text-shadow: 0 1px 0 rgba(255, 255, 255, .15);
         }
 
         /* subtle staple marks on evidence sheets */
@@ -1163,30 +1246,30 @@
             background-image:
                 var(--noise),
                 /* staple impression top-left */
-                linear-gradient(135deg, transparent 0, transparent calc(50% - 6px), rgba(0,0,0,.07) calc(50% - 6px), rgba(0,0,0,.07) calc(50% - 4px), transparent calc(50% - 4px)),
+                linear-gradient(135deg, transparent 0, transparent calc(50% - 6px), rgba(0, 0, 0, .07) calc(50% - 6px), rgba(0, 0, 0, .07) calc(50% - 4px), transparent calc(50% - 4px)),
                 /* age spots */
-                radial-gradient(circle 5px at 88% 24%, rgba(150,110,55,.07), transparent),
-                radial-gradient(circle 3px at 22% 68%, rgba(140,100,50,.05), transparent),
-                radial-gradient(circle 36px at 72% 78%, transparent 20px, rgba(120,80,30,.04) 22px, transparent 28px),
-                linear-gradient(180deg, rgba(0,0,0,.03), transparent 28%, rgba(120,90,30,.06));
+                radial-gradient(circle 5px at 88% 24%, rgba(150, 110, 55, .07), transparent),
+                radial-gradient(circle 3px at 22% 68%, rgba(140, 100, 50, .05), transparent),
+                radial-gradient(circle 36px at 72% 78%, transparent 20px, rgba(120, 80, 30, .04) 22px, transparent 28px),
+                linear-gradient(180deg, rgba(0, 0, 0, .03), transparent 28%, rgba(120, 90, 30, .06));
         }
 
         /* realistic sticky note */
         .sticky {
             background-image:
-                linear-gradient(180deg, rgba(255,255,255,.12) 0%, transparent 20%, rgba(0,0,0,.04) 100%);
+                linear-gradient(180deg, rgba(255, 255, 255, .12) 0%, transparent 20%, rgba(0, 0, 0, .04) 100%);
             background-color: #f6e27a;
-            border-top: 3px solid rgba(200,170,60,.35);
+            border-top: 3px solid rgba(200, 170, 60, .35);
             box-shadow:
-                0 6px 8px -4px rgba(0,0,0,.45),
-                inset 0 -2px 6px rgba(0,0,0,.04);
+                0 6px 8px -4px rgba(0, 0, 0, .45),
+                inset 0 -2px 6px rgba(0, 0, 0, .04);
         }
 
         /* evidence tag aging */
         .etag {
-            background-image: linear-gradient(90deg, rgba(255,255,255,.08), transparent 40%, rgba(0,0,0,.05));
+            background-image: linear-gradient(90deg, rgba(255, 255, 255, .08), transparent 40%, rgba(0, 0, 0, .05));
             background-color: #d9bc82;
-            text-shadow: 0 1px 0 rgba(255,255,255,.15);
+            text-shadow: 0 1px 0 rgba(255, 255, 255, .15);
         }
 
         .facts {
@@ -1595,18 +1678,35 @@
 
         /* ── custom cursors (desktop only) ── */
         @media (pointer:fine) {
+
             body,
             body * {
                 cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='13' cy='13' r='9' fill='none' stroke='%23c8a468' stroke-width='2.4' opacity='.85'/%3E%3Ccircle cx='13' cy='13' r='9' fill='rgba(200,220,245,.08)'/%3E%3Cellipse cx='10' cy='10' rx='3.5' ry='2.5' transform='rotate(-30 10 10)' fill='rgba(255,255,255,.18)'/%3E%3Cline x1='19.5' y1='19.5' x2='29' y2='29' stroke='%238a6f3a' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='19.5' y1='19.5' x2='29' y2='29' stroke='%23c8a468' stroke-width='1.8' stroke-linecap='round'/%3E%3Ccircle cx='13' cy='13' r='7.5' fill='none' stroke='rgba(255,248,210,.12)' stroke-width='.8'/%3E%3C/svg%3E") 13 13, default;
             }
 
+            /* ── pointer cursor for interactive controls & links ── */
             body button,
             body a,
+            body a *,
+            body .tool-link,
+            body .tool-link *,
             body label[tabindex],
             body input,
             body summary,
             body [role="button"] {
                 cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='13' cy='13' r='9' fill='none' stroke='%23c8a468' stroke-width='2.4' opacity='.85'/%3E%3Ccircle cx='13' cy='13' r='9' fill='rgba(255,240,180,.1)'/%3E%3Cellipse cx='10' cy='10' rx='3.5' ry='2.5' transform='rotate(-30 10 10)' fill='rgba(255,255,255,.28)'/%3E%3Cline x1='19.5' y1='19.5' x2='29' y2='29' stroke='%238a6f3a' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='19.5' y1='19.5' x2='29' y2='29' stroke='%23e8c868' stroke-width='1.8' stroke-linecap='round'/%3E%3Ccircle cx='13' cy='13' r='7.5' fill='none' stroke='rgba(255,248,210,.2)' stroke-width='.8'/%3E%3Ccircle cx='13' cy='13' r='3' fill='rgba(255,200,60,.15)'/%3E%3C/svg%3E") 13 13, pointer;
+                cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='13' cy='13' r='9' fill='none' stroke='%23c8a468' stroke-width='2.4' opacity='.85'/%3E%3Ccircle cx='13' cy='13' r='9' fill='rgba(200,220,245,.08)'/%3E%3Cellipse cx='10' cy='10' rx='3.5' ry='2.5' transform='rotate(-30 10 10)' fill='rgba(255,255,255,.28)'/%3E%3Cline x1='19.5' y1='19.5' x2='29' y2='29' stroke='%238a6f3a' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='19.5' y1='19.5' x2='29' y2='29' stroke='%23e8c868' stroke-width='1.8' stroke-linecap='round'/%3E%3Ccircle cx='13' cy='13' r='7.5' fill='none' stroke='rgba(255,248,210,.2)' stroke-width='.8'/%3E%3Ccircle cx='13' cy='13' r='3' fill='rgba(255,200,60,.15)'/%3E%3C/svg%3E") 13 13, pointer;
+            }
+
+            /* ── hover custom mouse: luminous golden magnifying lens with inspection reticle ── */
+            body a:hover,
+            body a:hover *,
+            body .tool-link:hover,
+            body .tool-link:hover *,
+            body button:hover,
+            body button:hover *,
+            body summary:hover {
+                cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='13' cy='13' r='9.2' fill='none' stroke='rgba(0,0,0,0.38)' stroke-width='3.2'/%3E%3Cline x1='19.5' y1='19.5' x2='29' y2='29' stroke='rgba(0,0,0,0.45)' stroke-width='4' stroke-linecap='round'/%3E%3Cline x1='19.5' y1='19.5' x2='29' y2='29' stroke='%238a6f3a' stroke-width='3.2' stroke-linecap='round'/%3E%3Cline x1='19.5' y1='19.5' x2='29' y2='29' stroke='%23ffd54f' stroke-width='1.8' stroke-linecap='round'/%3E%3Ccircle cx='13' cy='13' r='9' fill='rgba(255,225,100,0.28)' stroke='%23e8b84b' stroke-width='2.4'/%3E%3Cellipse cx='10' cy='10' rx='3.5' ry='2.2' transform='rotate(-30 10 10)' fill='rgba(255,255,255,0.6)'/%3E%3Ccircle cx='13' cy='13' r='7.2' fill='none' stroke='rgba(255,248,210,0.45)' stroke-width='0.8'/%3E%3Ccircle cx='13' cy='13' r='2.8' fill='%23a8231b'/%3E%3Cpath d='M10 16 L16 10 M12 10 L16 10 L16 14' fill='none' stroke='%23ffd54f' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 13 13, pointer !important;
             }
 
             /* ── letter cinema mode: romantic love cursor ── */
@@ -1718,6 +1818,18 @@
                             <td id="x4">PENDING</td>
                         </tr>
                     </table>
+                    <div class="toolkit-bar">
+                        <span class="toolkit-label">Investigation Tools:</span>
+                        <a href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener noreferrer"
+                            class="tool-link" title="Open CyberChef in a new tab">CyberChef <span class="ext-icon"
+                                aria-hidden="true">&#x2197;</span></a>
+                        <a href="https://www.dcode.fr/vigenere-cipher" target="_blank" rel="noopener noreferrer"
+                            class="tool-link" title="Open dCode Vigenère Cipher solver in a new tab">dCode (Vigenère)
+                            <span class="ext-icon" aria-hidden="true">&#x2197;</span></a>
+                        <a href="https://www.dcode.fr/" target="_blank" rel="noopener noreferrer" class="tool-link"
+                            title="Open dCode website in a new tab">dCode Home <span class="ext-icon"
+                                aria-hidden="true">&#x2197;</span></a>
+                    </div>
                     <p class="stmt"><b>Witness statement:</b> &ldquo;I heard a phone ring at <span class="redact">00:00
                             AM</span> and then nothing. The lamp stayed on all night. <span class="redact">NAME
                             HERE</span> never came down for breakfast.&rdquo;</p>
@@ -1754,6 +1866,9 @@
                     <p class="meta"><b>Collected by:</b> Det. M &middot; <b>Condition:</b> Intercepted</p>
                     <div class="clue">- .... .<small>Format: dots and dashes</small></div>
                     <p class="meta"><b>Tools:</b> CyberChef</p>
+                    <p class="meta"><b>Tools:</b> <a href="https://gchq.github.io/CyberChef/" target="_blank"
+                            rel="noopener noreferrer" class="tool-link" title="Open CyberChef in a new tab">CyberChef
+                            <span class="ext-icon" aria-hidden="true">&#x2197;</span></a></p>
                     <p class="meta"><b>Task:</b> Add the “From Morse Code” recipe and read the output.</p>
                     <p class="hand">&rarr; Short and long signals. Someone knew Morse.</p>
                     <div class="field"><label for="w1">Recovered word:</label><input type="text" id="w1"
@@ -1773,6 +1888,9 @@
                     <p class="meta"><b>Collected by:</b> Det. M &middot; <b>Condition:</b> Intact</p>
                     <div class="clue">ybbx<small>Format: letters, shifted</small></div>
                     <p class="meta"><b>Tools:</b> CyberChef</p>
+                    <p class="meta"><b>Tools:</b> <a href="https://gchq.github.io/CyberChef/" target="_blank"
+                            rel="noopener noreferrer" class="tool-link" title="Open CyberChef in a new tab">CyberChef
+                            <span class="ext-icon" aria-hidden="true">&#x2197;</span></a></p>
                     <p class="meta"><b>Task:</b> Add the “ROT13” recipe and read the output.</p>
                     <p class="hand">&rarr; Shifted alphabet. Swap every letter.</p>
                     <div class="field"><label for="w2">Recovered word:</label><input type="text" id="w2"
@@ -1792,6 +1910,10 @@
                     <p class="meta"><b>Collected by:</b> Det. M &middot; <b>Condition:</b> Sealed</p>
                     <div class="clue">raarvifk<small>Cipher: Vigenère · Key: CASE</small></div>
                     <p class="meta"><b>Tools:</b> dCode (Vigenère Cipher)</p>
+                    <p class="meta"><b>Tools:</b> <a href="https://www.dcode.fr/vigenere-cipher" target="_blank"
+                            rel="noopener noreferrer" class="tool-link"
+                            title="Open dCode (Vigenère Cipher) in a new tab">dCode (Vigenère Cipher) <span
+                                class="ext-icon" aria-hidden="true">&#x2197;</span></a></p>
                     <p class="meta"><b>Task:</b> Enter the ciphertext, set the key to CASE and choose Decrypt.</p>
                     <p class="hand">&rarr; The key looks a lot like the case word.</p>
                     <div class="field"><label for="w3">Recovered word:</label><input type="text" id="w3"
@@ -1812,6 +1934,9 @@
                     <div class="clue">01100010 01100101 01101000 01101001 01101110 01100100<small>Format: 8-bit
                             groups</small></div>
                     <p class="meta"><b>Tools:</b> CyberChef</p>
+                    <p class="meta"><b>Tools:</b> <a href="https://gchq.github.io/CyberChef/" target="_blank"
+                            rel="noopener noreferrer" class="tool-link" title="Open CyberChef in a new tab">CyberChef
+                            <span class="ext-icon" aria-hidden="true">&#x2197;</span></a></p>
                     <p class="meta"><b>Task:</b> Add the “From Binary” recipe and read the output.</p>
                     <p class="hand">&rarr; Eight digits make one letter.</p>
                     <div class="field"><label for="w4">Recovered word:</label><input type="text" id="w4"
@@ -1866,7 +1991,7 @@
             (function () {
                 var norm = function (s) { return s.toLowerCase().replace(/[^a-z ]/g, '').replace(/\s+/g, ' ').trim() };
                 var sha = function (s) { return crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)).then(function (b) { return Array.from(new Uint8Array(b)).map(function (x) { return x.toString(16).padStart(2, '0') }).join('') }) };
-                var BLOB = "fZi7GEG6n6C8mttecrlr25lDPYI1MX/V4bcRQtemPrb/zuZyOVJnkGYH6l0QjHSm3rlVeoowNpXTvD0G1W1OD6Gi2gjwxAmVf+PjHBs8PN1PrLwbFWk/acePVXvmhMf7lIDFCzEIAg0Czlx1qnr4iFffzPCqmjSWO4yOyxGrsklLhSQwyX6581dmY9gGvJor+I1n3Eg2AVqXHm9WITWzWpUulOwC8cQh3qVnugPhTFUfH4LT/nCdXKoLJstZJKk2BJcy5/AhKMBg+Oc1Dl9tAVxh/LvO4r5UbUqFAwohF2LF2Ga6jf1cyYoR3GW0zB3IAjF2tPy2P5Zxbf7iEbGnkmmTo5MEuF0eRVKHPgRC5lgUeV5VsJs5SMDhlRwPhpRSCRpjzynNTN30Han22qJy4NPdtOq2uej1m/1FbtP50XU8nARtBNikwisoLnGBiLE7X56prFEbkGNTXQee/V6lfU3gi1bVAcb3XNb9KNgewV94njY8xQStlIqGzSAdtygEQj6GLO0TXGTNjJZFYcAtauvA6KXG5j7OcicEqJW5clEQ9C2+V64UdXDXBRq9Rw54WiKM+KtdNLFcWCRsTxC+G5zuqPG42yu34MAiRAdblJJdGLbfX0eANHMGYQAaD859u4AuISghvIyZIJU/xHCnsmoqDFqtBAmxGfN5Jq3YL0YuKRn6zjMTEVQ8RZvpnZH/8r4cpuNNWBDLMugF2vCU2p5qJoTlMB56tJFQDSKn3OVjapyQ3z/7LJxAz9HbFrIcIfwKU4hwniLyfFgui6UJeXt2crVxos4AYXmT+Tr/8HGY7CCwAciOVAindg6rv8wvD2CDGRW1WBgo870ZAZM+PxVK9HEvSI7Y7zev443Tqppdx2U/hHe3gRHWhQYOJrVlsz7coe8RNLZae9CWpVb/QjnZXSaB97TFiSnS6hsyh2sZsJeTdM8CyGe6vCE7VR7hEerP/PtB8n1qU9JjSS5vqn6EVCxO38gC8RmnA4NyBENZWRosSk2I1GLiP34yg6mPQjAyLZxwl4bjhJk5GkPh4/4Uu4v/ICdD5KgRQrWrGFf6TQYXPIjLLUYbSk2L2TLE68ChxEWX91J5xtmEDhErCLrLoALlHGmbK2vQ4VjwMxi0Hp6pJ2cCdQombQZvZPTbfJdz+lTHhY3D2wkzqwvwCI+ZWUyjFTvyH4eEzKCzeb1jxdv+fNMSCeSPjVjD5Sq8pz2UIsWHYTkuWDRe7OfzZwES6KmyD3y5TZrHvY4RHhu2uZMpJUO6zk1+QTWaDo1Am4E6sYoJ10GYUSRd/XxCeS2Od8rqMbDfNTFSM2pGxwh3l3pSLA==";
+                var BLOB = "MF7qfOpF9t4pNb1aZCVYw1pxzCrMfnIPsVErmn20226EV5AlCwWjVctiohbR/fVKMadsPiPqZwjL+dRR2d750oley0OpNfiBBpeKtATEdRNWOOC5rivUIl7bOWTmyLdy4JCuFz7jMo9f+eBHyt3Uu9Abn9R8NRJorQ3IGCDVMBMRCAU4Juvv1D6ohIQto0karbWK8Bb2oAqX8XjP4AAvxF2pw5C97MylRDjci1k5M/6hf8bORXa9ZrKWgjAtoacSwnWGDOGYO+8z2rUk3iE6j1/fNR1Oiyx4tGjjEydLcsx9U2nU9j/xGuhO8eRvR45oeip1gclEj1CmLRZYvMRmFVdYXHhzaLINkNeaBDNb7oV7wPCIP5laDkEF2Iwo9+aa170dORMdYW99ya6xE3fX64zlOjvA4UgzmpUPkiu4jp6kFU0yGZoxCxT6SF1/Gmwe73zlwD4QtfwM5qWqRoQ8rJ5uKpIe0GlbzBwKPniqYAoJ+AJ7H2Sbaza33QAE0Qsc/NzNbUj6AQCcFDZJNE5C9F3d+j10wfLyQDxkfxqtkvHIqmHdyn7KTelvBMfibIJYXZy5eY/0cujHZM5/m3YQadWMjs+lyGUw/cxx7cQ7UF7ZhD2GXdTQb2YrwIeO/ViFQavHFxLB0iCnkJRbh6AFAHgv5Bx6c/u3gREgD5S7vZrHNy2qthiw9xoWcH1/fJSCR2FpdrfZxHhgeAZdfVUfDbTyirceClqCD3hYxpicEC2BXDkWXblE9JgmXFUDUg+h7yDZRraDjcuSHJWEBerjj+FNhE+z2ZV0Jsl+0xTPZv9Z/1WOm6cG5wF22WMOGyNgj30NVBsqKnWcNpv+tstHJV3xjNhiXkzujs42WPJJdtAPVewQjoJnKPa18RC3SXKunmtcc4Moy1xfnZtLA+XltEL0eBhq2oJLIUdxcaz4tgIBFJGdgtgjHP2fPgdBAWJ/FcOoDWpaJv7k3vD83cihAeSCOtapeo42zQ4yy+SIXDjpxoAy44WBGhD8SjZBSQgEvnt7dTMcL9WY6+PLup5UlBtSI884us7uK0z1va1Zihu64kDkzLtSTqDpTkGUfbxSij/M2oewvm1ZPCZ/yTc1caUyhjWMlbH8OS48nYrPmwI1w0o1KZ5uxw05gG8MX2FT1Mz9/9xpNc4wax+NByCn/2WoclVNRERQG0nz4YdSqtcvyubpe7q72sk2JC2726gVjBR/U0TkVRR7RuxaHjElq2BAIxpulSF/ZwXzNFfPKaYIG2IbyfkLjZascGFQPZPclHQnFvMyyZ4eRUQV7SlLzUQtM2fBjt3d+wZXPjw5RTyDBjG6/N0=";
                 var phrase = '';
                 var FINAL = "a297ff75e99aaab488d27352614228d78dbf4c0ea14d4735bcfd07561899b40d";
                 var done = {};
@@ -2045,7 +2170,7 @@
             var cx = cv.getContext('2d'), bx = bc.getContext('2d'), tcv = document.createElement('canvas'), tc = tcv.getContext('2d');
             var W = 0, H = 0, drops = [], glass = [], sprites = {}, MAX = 0, on = true, running = false, rnd = Math.random;
             function getStored(k) { try { return localStorage.getItem(k) } catch (e) { return null } }
-            function setStored(k, v) { try { localStorage.setItem(k, v) } catch (e) {} }
+            function setStored(k, v) { try { localStorage.setItem(k, v) } catch (e) { } }
             /* cinematic rain: only the very first time opening the website, for 30-40s, then clean light rain (same falling rain, NO glass drops, NO fog) */
             var hasSeen = !!getStored('night_shift_cine_rain_seen');
             var CINE_DURATION = 35000; /* ~35 seconds (30-40s range) */
@@ -2183,7 +2308,7 @@
                 storm: function () { document.body.classList.add('storm'); target = 1.5; on = true; start() },
                 strike: strike,
                 resume: function () { target = 0; level = 0; on = true; start() },
-                resetRain: function () { try { localStorage.removeItem('night_shift_cine_rain_seen') } catch (e) {} location.reload() }
+                resetRain: function () { try { localStorage.removeItem('night_shift_cine_rain_seen') } catch (e) { } location.reload() }
             };
             /* rare soft lightning */
             (function next(first) { setTimeout(function () { var c = document.body.classList; if (!c.contains('storm') && !c.contains('scene')) strike(false); next(false) }, first ? (20000 + rnd() * 30000) : (45000 + rnd() * 75000)) })(true);
